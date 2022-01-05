@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
+import propTypes from 'prop-types';
 
 
 
@@ -41,7 +42,9 @@ const Searchbar = ({ formSubmit }) => {
 };
 export default Searchbar
 
-
+Searchbar.propTypes = {
+    formSubmit: propTypes.func
+};
 
     
 
