@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Searchbar from "./Searchbar/Searchbar";
 import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,8 +23,8 @@ const App = () => {
   useEffect(() => {
     if (!searchValue) {
       return
-    }
-    fetch()
+    };
+     fetch();
   }, [searchValue, page]);
 
   const fetch = async () => {
