@@ -25,6 +25,7 @@ const App = () => {
       return
     };
      fetch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue, page]);
 
   const fetch = async () => {
