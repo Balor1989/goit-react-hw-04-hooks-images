@@ -1,27 +1,26 @@
-import { useEffect,useCallback } from "react";
-import { createPortal } from "react-dom";
-import propTypes from "prop-types";
+import { useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import propTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ children, onClose }) => {
-
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {
-      onClose()
-    };
+      onClose();
+    }
   };
 
   const handleKeyDown = useCallback(
     e => {
       if (e.code === 'Escape') {
-        onClose()
+        onClose();
       }
     },
     [onClose],
   );
 
-   useEffect(() => {
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -30,16 +29,15 @@ const Modal = ({ children, onClose }) => {
 
   return createPortal(
     <div className="Overlay" onClick={handleOverlayClick}>
-      <div className="Modal">
-        {children}
-      </div>
-    </div>, modalRoot
-  )
-}
+      <div className="Modal">{children}</div>
+    </div>,
+    modalRoot,
+  );
+};
 
-export default Modal
+export default Modal;
 
 Modal.propTypes = {
   children: propTypes.node,
-  onClose: propTypes.func
-}
+  onClose: propTypes.func,
+};
